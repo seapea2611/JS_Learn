@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../../js/student/student.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.min.js"></script>
+
+
+<head>
+    <title>Layout</title>
+
+    <head>
+        <title>Layout</title>
+        <script>
+            $(function() {
+                $("#mainNav").load("mainNav.html", function() {
+                    $(".nav-link").click(function(e) {
+                        e.preventDefault();
+                        var href = $(this).attr('href');
+                        $("#content").load(href, function() {
+                            history.pushState({}, '', href);
+                        });
+                    });
+                });
+            });
+        </script>
+    </head>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div>
+            <nav class="navbar ">
+                <a class="navbar-brand" href="#" id="mainImage">
+                    <img src="../../img/school.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                    <span>Student Management System<br><span style="color: blue; font-size: smaller; font-style: italic;">This Webpage is for management of student information</span></span>
+                </a>
+            </nav>
+            <hr>
+            <!-- Add this line to separate the two sections -->
+            <nav class="navbar navbar-expand-lg" style="background-color: bisque;">
+                <ul class="navbar-nav">
+                    <li class="nav-item mr-5">
+                        <a class="nav-link" href="#"></a>
+                    </li>
+                    <li class="nav-item mr-5">
+                        <a class="nav-link" href="#" style="color: black;">Home</a>
+                    </li>
+                    <li class="nav-item mr-5">
+                        <a class="nav-link" href="#" style="color: black;">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: black;">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            <hr>
+
+        </div>
+
+        <div class="row">
+            <div class="col-2" id="mainNav">
+            </div>
+            <div class="col-10" id="content">
+                <div class="container">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-outline-primary" id="addButton">
+                                            <img src="../../img/plus.png" alt="Add" style="width: 18px; height: 18px;">
+                                            Add</button>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-primary" id="deleteManyButton" data-toggle="modal" data-target="#confirmDeleteManyModal">
+                                            <img src="../../img/delete.png" alt="Delete" style="width: 18px; height: 18px;">
+                                            Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 text-right">
+                                <div class="input-group mb-3">
+                                    <input type="text" id="searchInput" class="form-control" placeholder="Search">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-outline-secondary" id="searchButton">
+                                            <img src="../../img/search.png" alt="Search" style="width: 18px; height: 18px;">
+                                            Search</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12" class="pc" id="tableStudent"></div>
+                            <table class="table" id="searchResults" style="border-collapse: collapse;">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Name</th>
+                                        <th>Id</th>
+                                        <th>Birth</th>
+                                        <th>Grade</th>
+                                        <th>Sex</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                        <th>Class</th>
+                                        <th>Department</th>
+                                        <th>Award</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="checkbox" class="selectCheckbox"></td>
+                                        <td>Đỗ Văn Hải</td>
+                                        <td style="text-align: right" ;>20207600</td>
+                                        <td>11/26/2002</td>
+                                        <td style="text-align: right" ;>4</td>
+                                        <td>Male</td>
+                                        <td>0916303058</td>
+                                        <td>hai.dv207600@sis.hust.edu.vn</td>
+                                        <td>IT-LTU01 K65</td>
+                                        <td>Information Technology</td>
+                                        <td>Intertional</td>
+                                        <td><button class="btn btn-outline-primary editButton" title="Edit"> <img src="../../img/edit.png" alt="Edit" style="width: 18px; height: 18px;"></button> </td>
+                                        <td><button class="btn btn-outline-primary deleteButton" title="Delete"><img src="../../img/remove.png" alt="Delete" style="width: 18px; height: 18px;"></button></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><input type="checkbox" class="selectCheckbox"></td>
+                                        <td>Đỗ Văn Hải</td>
+                                        <td style="text-align: right" ;>20196517</td>
+                                        <td>07/23/2001</td>
+                                        <td style="text-align: right" ;>5</td>
+                                        <td>Male</td>
+                                        <td>0988716959</td>
+                                        <td>hai.dv196517@sis.hust.edu.vn</td>
+                                        <td>CH-01 K64</td>
+                                        <td>Chemical Technical</td>
+                                        <td>Intertional Olympic</td>
+                                        <td><button class="btn btn-outline-primary editButton" title="Edit"> <img src="../../img/edit.png" alt="Edit" style="width: 18px; height: 18px;"></button> </td>
+                                        <td><button class="btn btn-outline-primary deleteButton" title="Delete"><img src="../../img/remove.png" alt="Delete" style="width: 18px; height: 18px;"></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" class="selectCheckbox"></td>
+                                        <td>Nguyễn Thị Thu</td>
+                                        <td style="text-align: right" ;>20238009</td>
+                                        <td>11/12/2005</td>
+                                        <td style="text-align: right" ;>1</td>
+                                        <td>Female</td>
+                                        <td>0988578036</td>
+                                        <td>thu.nt238009@sis.hust.edu.vn</td>
+                                        <td>ED3-01 K68</td>
+                                        <td>Education management</td>
+                                        <td>National Olympic</td>
+                                        <td><button class="btn btn-outline-primary editButton" title="Edit"> <img src="../../img/edit.png" alt="Edit" style="width: 18px; height: 18px;"></button> </td>
+                                        <td><button class="btn btn-outline-primary deleteButton" title="Delete"><img src="../../img/remove.png" alt="Delete" style="width: 18px; height: 18px;"></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" class="selectCheckbox"></td>
+                                        <td>Hoàng Xuân Bình</td>
+                                        <td style="text-align: right" ;>20229999</td>
+                                        <td>12/23/2003</td>
+                                        <td style="text-align: right" ;>2</td>
+                                        <td>Female</td>
+                                        <td>0229887555</td>
+                                        <td>binh.hx229999@sis.hust.edu.vn</td>
+                                        <td>BF2-08 K67</td>
+                                        <td>Food Technical</td>
+                                        <td></td>
+                                        <td><button class="btn btn-outline-primary editButton" title="Edit"> <img src="../../img/edit.png" alt="Edit" style="width: 18px; height: 18px;"></button> </td>
+                                        <td><button class="btn btn-outline-primary deleteButton" title="Delete"><img src="../../img/remove.png" alt="Delete" style="width: 18px; height: 18px;"></button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div id="pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="modal" id="addModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add new student</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p> Fields marked with<span style="color: red;">(*)</span> are required</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="nameInput" style="font-size: large; font-style: italic;">Name <span class="text-danger">*</span></label>
+                            <input type="text" id="nameInput" class="form-control" placeholder="Name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="idInput" style="font-size: large; font-style: italic;">Id <span class="text-danger">*</span></label>
+                            <input type="number" id="idInput" class="form-control" placeholder="Id" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="birthInput" style="font-size: large; font-style: italic;">Birth</label>
+                            <input type="date" id="birthInput" class="form-control" placeholder="Birth">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="gradeInput" style="font-size: large; font-style: italic;">Grade</label>
+                            <select id="gradeInput" class="form-control">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="sexInput" style="font-size: large; font-style: italic;">Sex</label> <br>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" id="sexMaleInput" class="form-check-input" name="sex" value="male">
+                                <label for="sexMaleInput" class="form-check-label">Male</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" id="sexFemaleInput" class="form-check-input" name="sex" value="female">
+                                <label for="sexFemaleInput" class="form-check-label">Female</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="awardInput" style="font-size: large; font-style: italic;">Award</label>
+                            <div class="form-check">
+                                <input type="checkbox" id="awardNationalInput" class="form-check-input" name="award" value="national">
+                                <label for="awardNationalInput" class="form-check-label">National</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" id="awardInternationalInput" class="form-check-input" name="award" value="international">
+                                <label for="awardInternationalInput" class="form-check-label">International</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" id="awardOlympicInput" class="form-check-input" name="award" value="olympic">
+                                <label for="awardOlympicInput" class="form-check-label">Olympic</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="phoneInput" style="font-size: large; font-style: italic;">Phone</label> <span class="text-danger">*</span></label>
+                            <input type="tel" id="phoneInput" class="form-control" placeholder="Phone" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="mailInput" style="font-size: large; font-style: italic;">Email <span class="text-danger">*</span></label>
+                            <textarea id="mailInput" class="form-control" placeholder="Email" required></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="departmentInput" style="font-size: large; font-style: italic;">Department</label>
+                            <select id="departmentInput" class="form-control">
+                                <option value="Information Technology">Information Technology</option>
+                                <option value="Car Technical">Car Technical</option>
+                                <option value="Chemical Technical">Chemical Technical</option>
+                                <option value="Food Technical">Food Technical</option>
+                                <option value="Education management">Education management</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="classInput" style="font-size: large; font-style: italic;">Class <span class="text-danger">*</span></label>
+                            <textarea id="classInput" class="form-control" placeholder="Class" required></textarea>
+                        </div>
+                    </div>
+
+                    <p id="errorMessage"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" id="confirmAddButton" class="btn btn-primary">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Row</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label for="editNameInput">Name</label>
+                    <input type="text" id="editNameInput" class="form-control">
+
+                    <div class="form-group">
+                        <label for="editPhoneInput">Phone</label>
+                        <input type="tel" id="editPhoneInput" class="form-control">
+                    </div>
+
+                    <label for="editMailInput">Email</label>
+                    <textarea id="editMailInput" class="form-control"></textarea>
+
+                    <label for="editDepartmentInput">Department</label>
+                    <select id="editDepartmentInput" class="form-control">
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Car Technical">Car Technical</option>
+                        <option value="Chemical Technical">Chemical Technical</option>
+                        <option value="Chemical Technical">Food Technical</option>
+                        <option value="Chemical Technical">Education management</option>
+                    </select>
+
+                    <label for="editClassInput">Class</label>
+                    <textarea id="editClassInput" class="form-control"></textarea>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="acceptEditButton">Accept</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmDeleteModalLabel">Confirm Delete</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this row?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteButton">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="confirmDeleteManyModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteManyModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmDeleteManyModalLabel">Confirm Delete</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete these row?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteManyButton">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    $(document).ready(function() {
+        var rowsShown = 5;
+        var rowsTotal = $('#tableStudent tbody tr').length;
+
+        $('#tableStudent tbody tr').hide();
+        $('#tableStudent tbody tr').slice(0, rowsShown).show();
+
+        $('#pagination').twbsPagination({
+            totalPages: 10,
+            visiblePages: 5,
+            onPageClick: function(event, page) {
+                var startItem = (page - 1) * rowsShown;
+                var endItem = startItem + rowsShown;
+                $('#searchResults tbody tr').hide().slice(startItem, endItem).show();
+            }
+        });
+
+        $("#mainImage").click(function(e) {
+            e.preventDefault();
+            alert("You clicked the image");
+            window.location.href = "../layout/index.html";
+        });
+    });
+</script>
+
+
+</html>

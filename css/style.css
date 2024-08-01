@@ -1,0 +1,116 @@
+.nav-item a:hover {
+    background-color: red;
+    text-decoration: underline;
+}
+
+table thead tr th {
+    border: 1px solid rgb(2, 63, 125);
+}
+
+table tbody tr td {
+    border: 1px solid rgb(2, 63, 125);
+}
+
+table thead tr:nth-child(odd) {
+    background-color: rgb(184, 230, 237);
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: rgb(184, 230, 237);
+}
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+@media (min-width: 740px) {
+    .col-3,
+    .col-9,
+    .col-2,
+    .col-10,
+    .col-10 .col-6,
+    .col-10 .col-12 {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+    thead tr {
+        position: fixed;
+        top: -9999px;
+        left: -9999px;
+    }
+    tr {
+        border: 1px solid #ccc;
+    }
+    td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 60%;
+        text-align: right;
+    }
+    td:before {
+        position: absolute;
+        top: 6px;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: right;
+    }
+    td:nth-of-type(1):before {
+        display: none;
+    }
+    td:nth-of-type(2):before {
+        content: "Name";
+        text-align: left;
+    }
+    td:nth-of-type(3):before {
+        content: "Id";
+        text-align: left;
+    }
+    td:nth-of-type(4):before {
+        content: "Birth";
+        text-align: left;
+    }
+    td:nth-of-type(5):before {
+        content: "Grade";
+        text-align: left;
+    }
+    td:nth-of-type(6):before {
+        content: "Sex";
+        text-align: left;
+    }
+    td:nth-of-type(7):before {
+        content: "Phone";
+        text-align: left;
+    }
+    td:nth-of-type(8):before {
+        content: "Email";
+        text-align: left;
+    }
+    td:nth-of-type(9):before {
+        content: "Class";
+        text-align: left;
+    }
+    td:nth-of-type(10):before {
+        content: "Department";
+        text-align: left;
+    }
+}
